@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://dq6e4qo3h0pun"]
+
+[ext_resource type="Script" path="res://scripts/weapon-stab.gd" id="1_m47nc"]
+[ext_resource type="AudioStream" uid="uid://bynpmk0r1owg7" path="res://audio/weapons/Stab01.wav" id="2_vqqac"]
+[ext_resource type="AudioStream" uid="uid://bl7o3p3yl6py0" path="res://audio/weapons/Stab02.wav" id="3_2hsiu"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="4_bk18l"]
+[ext_resource type="PackedScene" uid="uid://btprbuwifgdtg" path="res://scenes/touch_damager.tscn" id="5_qshc0"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nip3d"]
+streams_count = 2
+stream_0/stream = ExtResource("2_vqqac")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_2hsiu")
+stream_1/weight = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iklc"]
+atlas = ExtResource("4_bk18l")
+region = Rect2(89, 344, 29, 114)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hi5dd"]
+radius = 12.0
+height = 140.0
+
+[node name="Toothpick" type="Node2D"]
+position = Vector2(472, 0)
+scale = Vector2(1.4, 1.4)
+script = ExtResource("1_m47nc")
+distance = 450.0
+player_path = NodePath("AudioStreamPlayer2D")
+sprite_path = NodePath("Sprite2D")
+cooldown_timer_path = NodePath("CooldownTimer")
+damager_path = NodePath("TouchDamager")
+weapon_stat_name = "toothpick"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_nip3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0iklc")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="TouchDamager" parent="." instance=ExtResource("5_qshc0")]
+collision_layer = 0
+collision_mask = 2
+input_pickable = false
+signal_only = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDamager"]
+shape = SubResource("CapsuleShape2D_hi5dd")

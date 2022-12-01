@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://1ii58ns7vjdi"]
+
+[ext_resource type="Script" path="res://scripts/items/event_based.gd" id="1_a8kln"]
+[ext_resource type="Script" path="res://scripts/items/event_based/enemy_sugar_allocator.gd" id="1_fa7dm"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="3_xppws"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5lq7"]
+atlas = ExtResource("3_xppws")
+region = Rect2(468, 211, 28, 34)
+
+[resource]
+script = ExtResource("1_a8kln")
+chosen_source = 1
+chosen_node = ExtResource("1_fa7dm")
+starting_chance = 1.0
+on_pickup = true
+sets_flag = 0
+chosen_signal = ""
+texture = SubResource("AtlasTexture_d5lq7")
+exported_name = "dad"
+required_flag = 0
+unlocked_by_default = true

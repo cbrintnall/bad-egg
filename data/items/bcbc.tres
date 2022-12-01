@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://cqiafqv248etg"]
+
+[ext_resource type="Script" path="res://scripts/items/bcbc.gd" id="1_6m80i"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_b0b1b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j73go"]
+atlas = ExtResource("2_b0b1b")
+region = Rect2(469, 122, 63, 72)
+
+[resource]
+script = ExtResource("1_6m80i")
+texture = SubResource("AtlasTexture_j73go")
+exported_name = "bcbc"
+required_flag = null
+unlocked_by_default = true

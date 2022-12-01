@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cqqiov8i6mplf"]
+
+[ext_resource type="PackedScene" uid="uid://p7gdcygrl3ym" path="res://scenes/explosion.tscn" id="1_asq1f"]
+[ext_resource type="Script" path="res://scripts/items/event_based.gd" id="1_ixygw"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="3_nrttg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mptmy"]
+atlas = ExtResource("3_nrttg")
+region = Rect2(173, 178, 61, 83)
+
+[resource]
+script = ExtResource("1_ixygw")
+chosen_source = 1
+chosen_scene = ExtResource("1_asq1f")
+starting_chance = 0.1
+on_pickup = false
+sets_flag = 0
+chosen_signal = "enemy_died"
+texture = SubResource("AtlasTexture_mptmy")
+exported_name = "tbos"
+required_flag = 0
+unlocked_by_default = true

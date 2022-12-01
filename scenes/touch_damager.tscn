@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://btprbuwifgdtg"]
+
+[ext_resource type="Script" path="res://scripts/touch_damager.gd" id="1_h2j4e"]
+
+[node name="TouchDamager" type="Area2D"]
+script = ExtResource("1_h2j4e")

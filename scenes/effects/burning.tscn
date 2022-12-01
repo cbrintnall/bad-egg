@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://br3ceeqltbxgh"]
+
+[ext_resource type="Script" path="res://scripts/burning.gd" id="1_nkvg0"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_mwrsd"]
+
+[sub_resource type="Curve" id="Curve_xbrb3"]
+_data = [Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a2p46"]
+curve = SubResource("Curve_xbrb3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_754d1"]
+emission_shape = 1
+emission_sphere_radius = 45.13
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, -100, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_max = 100.0
+radial_accel_min = 22.99
+radial_accel_max = 91.96
+angle_min = -10.0
+angle_max = 10.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_a2p46")
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj4pf"]
+atlas = ExtResource("2_mwrsd")
+region = Rect2(406, 45, 30, 41)
+
+[node name="Burning" type="Node2D"]
+script = ExtResource("1_nkvg0")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_754d1")
+texture = SubResource("AtlasTexture_sj4pf")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

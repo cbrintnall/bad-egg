@@ -1,0 +1,328 @@
+[gd_scene load_steps=16 format=3 uid="uid://bp234d4n6xd5t"]
+
+[ext_resource type="Script" path="res://scripts/enemy/peppa.gd" id="1_2jig3"]
+[ext_resource type="PackedScene" uid="uid://dtsj83uvbb1lt" path="res://scenes/health.tscn" id="2_ou408"]
+[ext_resource type="Texture2D" uid="uid://mljadg6hngvh" path="res://textures/enemies.png" id="3_ihb88"]
+[ext_resource type="AudioStream" uid="uid://b74eqjkje6n4g" path="res://audio/PepperSeedShoot.wav" id="4_qxqsc"]
+[ext_resource type="Texture2D" uid="uid://oaun82do4ahk" path="res://textures/fx.png" id="4_x22ni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcuf7"]
+atlas = ExtResource("3_ihb88")
+region = Rect2(678, 209, 29, 46)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cumn2"]
+radius = 59.0
+height = 156.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c407s"]
+atlas = ExtResource("4_x22ni")
+region = Rect2(255, 398, 243, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxlab"]
+atlas = ExtResource("3_ihb88")
+region = Rect2(519, 223, 156, 167)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udquv"]
+atlas = ExtResource("3_ihb88")
+region = Rect2(712, 282, 59, 17)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_duevm"]
+radius = 30.0
+
+[sub_resource type="Animation" id="Animation_pmr67"]
+resource_name = "Idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:skew")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, 0.0, -0.174533]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 1.2), Vector2(1, 1), Vector2(0.8, 1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Eyes:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(712, 282, 59, 17)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 94), Vector2(-18.5, 94), Vector2(13.5, 94)]
+}
+
+[sub_resource type="Animation" id="Animation_gwi6s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1.3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Eyes:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(712, 282, 59, 17)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Body:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shadow:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 94)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Shadow:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_urmx7"]
+resource_name = "Shoot"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Eyes:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(716, 319, 57, 19)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 0.8), Vector2(1.2, 0.8), Vector2(0.8, 1.2), Vector2(0.833, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 0), Vector2(2, 0), Vector2(-4, 0), Vector2(8, 0), Vector2(-8, 0), Vector2(0, 0)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SeedShooter/AudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_qxqsc")
+}],
+"times": PackedFloat32Array(0.6)
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot_seed"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Idle", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shadow:scale")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.5, 0.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Shadow:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(9, 94), Vector2(-9.5, 94), Vector2(-9.53674e-07, 94)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4lcwc"]
+_data = {
+"Idle": SubResource("Animation_pmr67"),
+"RESET": SubResource("Animation_gwi6s"),
+"Shoot": SubResource("Animation_urmx7")
+}
+
+[node name="peppa" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_2jig3")
+seed_texture = SubResource("AtlasTexture_gcuf7")
+seed_spawn_path = NodePath("SeedSpawn")
+health_path = NodePath("Health")
+enemy_name = "peppa"
+
+[node name="Health" parent="." instance=ExtResource("2_ou408")]
+collision_layer = 2
+collision_mask = 0
+stat_category = "peppa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Health"]
+position = Vector2(2, 0)
+shape = SubResource("CapsuleShape2D_cumn2")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 94)
+scale = Vector2(0.4, 0.4)
+z_index = -1
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_c407s")
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(1, 1.3)
+texture = SubResource("AtlasTexture_mxlab")
+
+[node name="Eyes" type="Sprite2D" parent="Body"]
+position = Vector2(3, 3)
+texture = SubResource("AtlasTexture_udquv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_duevm")
+
+[node name="SeedShooter" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="SeedShooter"]
+wait_time = 5.0
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SeedShooter"]
+position = Vector2(-1168, -1022)
+stream = ExtResource("4_qxqsc")
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_4lcwc")
+}
+
+[node name="SeedSpawn" type="Node2D" parent="."]
+position = Vector2(3, -44)

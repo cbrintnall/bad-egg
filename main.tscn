@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://kbcf8p56ug74"]
+
+[ext_resource type="TileSet" uid="uid://dlpw0404xfnpb" path="res://textures/assets/base.tres" id="1_meh55"]
+[ext_resource type="Script" path="res://scripts/map_generator.gd" id="1_ux45n"]
+[ext_resource type="PackedScene" uid="uid://d4nhwbavjoyxx" path="res://scenes/spawner.tscn" id="2_uaxpv"]
+[ext_resource type="PackedScene" uid="uid://c63d6bgioo6lp" path="res://scenes/player.tscn" id="3_gmq4t"]
+[ext_resource type="Script" path="res://scripts/ui/game_menu.gd" id="5_mp76j"]
+[ext_resource type="Theme" uid="uid://debwhn314ldmv" path="res://main.tres" id="5_r5ifu"]
+[ext_resource type="PackedScene" uid="uid://bhgvimm3fiofy" path="res://scenes/ui/options.tscn" id="8_plgqm"]
+
+[node name="main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="map" type="TileMap" parent="."]
+z_index = -500
+tile_set = ExtResource("1_meh55")
+format = 2
+
+[node name="map_generator" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("1_ux45n")
+chunk_size = Vector2i(11, 11)
+map_path = NodePath("../map")
+
+[node name="spawner" parent="." instance=ExtResource("2_uaxpv")]
+y_sort_enabled = true
+game_waves = []
+
+[node name="player" parent="." instance=ExtResource("3_gmq4t")]
+position = Vector2(772, 902)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_mp76j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+offset_left = 544.0
+offset_top = 234.0
+offset_right = 736.0
+offset_bottom = 315.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_r5ifu")
+text = "Resume"
+
+[node name="Options" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+offset_left = 523.0
+offset_top = 319.0
+offset_right = 756.0
+offset_bottom = 400.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_r5ifu")
+text = "Options"
+
+[node name="End Run" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+offset_left = 526.0
+offset_top = 404.0
+offset_right = 754.0
+offset_bottom = 485.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("5_r5ifu")
+text = "End Run
+"
+
+[node name="Options" parent="CanvasLayer" instance=ExtResource("8_plgqm")]

@@ -1,0 +1,114 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh2dywimujwu3"]
+
+[ext_resource type="Theme" uid="uid://debwhn314ldmv" path="res://main.tres" id="1_51oc4"]
+[ext_resource type="Script" path="res://scripts/stat_upgrade_bar.gd" id="1_nf1e2"]
+[ext_resource type="Texture2D" uid="uid://ciubr88hix4pq" path="res://textures/ui.png" id="2_5ms53"]
+[ext_resource type="AudioStream" uid="uid://b74fstn130owg" path="res://audio/ui/button-hover-sound.wav" id="2_em1mx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dx28"]
+atlas = ExtResource("2_5ms53")
+region = Rect2(250, 200, 60, 40)
+
+[sub_resource type="LabelSettings" id="LabelSettings_juffq"]
+font_size = 72
+outline_size = 18
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbbux"]
+atlas = ExtResource("2_5ms53")
+region = Rect2(190, 200, 50, 40)
+
+[node name="StatUpgradeBar" type="HBoxContainer"]
+anchors_preset = -1
+offset_top = 268.0
+offset_right = 423.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_nf1e2")
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_em1mx")
+
+[node name="Minus" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(86, 86)
+offset_top = 49.0
+offset_right = 92.0
+offset_bottom = 135.0
+size_flags_horizontal = 5
+size_flags_vertical = 4
+theme = ExtResource("1_51oc4")
+
+[node name="Button" type="Button" parent="Minus"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 80.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = SubResource("AtlasTexture_5dx28")
+flat = true
+icon_alignment = 1
+
+[node name="StatName" type="PanelContainer" parent="."]
+offset_left = 96.0
+offset_top = 42.0
+offset_right = 393.0
+offset_bottom = 142.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_51oc4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StatName"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 285.0
+offset_bottom = 88.0
+theme_override_constants/separation = 12
+
+[node name="TextureRect" type="TextureRect" parent="StatName/HBoxContainer"]
+offset_bottom = 76.0
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="StatName/HBoxContainer"]
+offset_left = 12.0
+offset_right = 160.0
+offset_bottom = 76.0
+text = "Speed"
+label_settings = SubResource("LabelSettings_juffq")
+horizontal_alignment = 1
+
+[node name="Amount" type="Label" parent="StatName/HBoxContainer"]
+offset_left = 172.0
+offset_right = 273.0
+offset_bottom = 76.0
+text = "(10)"
+label_settings = SubResource("LabelSettings_juffq")
+horizontal_alignment = 1
+
+[node name="Plus" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(86, 86)
+offset_left = 397.0
+offset_top = 49.0
+offset_right = 483.0
+offset_bottom = 135.0
+size_flags_horizontal = 5
+size_flags_vertical = 4
+theme = ExtResource("1_51oc4")
+
+[node name="Button2" type="Button" parent="Plus"]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 74.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = SubResource("AtlasTexture_vbbux")
+flat = true
+icon_alignment = 1
+
+[connection signal="mouse_entered" from="Minus/Button" to="AudioStreamPlayer" method="play"]
+[connection signal="mouse_entered" from="Plus/Button2" to="AudioStreamPlayer" method="play"]

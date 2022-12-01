@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bu5xb1m58rnn5"]
+
+[ext_resource type="Script" path="res://scripts/items/event_based.gd" id="1_6g4s5"]
+[ext_resource type="PackedScene" uid="uid://bnjubmosx7stp" path="res://scenes/weapons/cat.tscn" id="1_l6oha"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="3_gkt5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8qd8"]
+atlas = ExtResource("3_gkt5q")
+region = Rect2(643, 98, 48, 90)
+
+[resource]
+script = ExtResource("1_6g4s5")
+chosen_source = 0
+chosen_scene = ExtResource("1_l6oha")
+starting_chance = 1.0
+on_pickup = true
+sets_flag = 1
+chosen_signal = ""
+texture = SubResource("AtlasTexture_b8qd8")
+exported_name = "cat"
+item_name = "Cats Out Of The Bag"
+required_flag = 0
+unlocked_by_default = true

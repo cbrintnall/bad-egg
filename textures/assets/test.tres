@@ -1,0 +1,26 @@
+[gd_resource type="AtlasTexture" load_steps=8 format=3 uid="uid://dwbhgcuug626l"]
+
+[ext_resource type="Script" path="res://scripts/random_texture.gd" id="1_ghis4"]
+[ext_resource type="Texture2D" uid="uid://oaun82do4ahk" path="res://textures/fx.png" id="1_idbn2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyfky"]
+atlas = ExtResource("1_idbn2")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vf5v7"]
+load_path = "res://.godot/imported/fx.png-8e821cec36808e28765ead8f7037b71c.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poseb"]
+atlas = SubResource("CompressedTexture2D_vf5v7")
+region = Rect2(518, 15, 38, 70)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nv2ut"]
+load_path = "res://.godot/imported/fx.png-8e821cec36808e28765ead8f7037b71c.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eiuvx"]
+atlas = SubResource("CompressedTexture2D_nv2ut")
+region = Rect2(569, 16, 56, 58)
+
+[resource]
+atlas = SubResource("AtlasTexture_cyfky")
+script = ExtResource("1_ghis4")
+options = [SubResource("AtlasTexture_poseb"), SubResource("AtlasTexture_eiuvx")]

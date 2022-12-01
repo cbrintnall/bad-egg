@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://fcuiqhgty4px"]
+
+[ext_resource type="Script" path="res://scripts/microphone_scalar.gd" id="1_11qat"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_4gdg5"]
+
+[node name="MicrophoneScalar" type="Node2D"]
+script = ExtResource("1_11qat")
+bus = "Microphone"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamMicrophone_4gdg5")
+autoplay = true
+bus = &"Microphone"

@@ -1,0 +1,309 @@
+[gd_scene load_steps=28 format=3 uid="uid://dkqdxa70t21ol"]
+
+[ext_resource type="Script" path="res://scripts/enemy/blueberry.gd" id="1_kslfg"]
+[ext_resource type="Texture2D" uid="uid://mljadg6hngvh" path="res://textures/enemies.png" id="2_wm28v"]
+[ext_resource type="PackedScene" uid="uid://btprbuwifgdtg" path="res://scenes/touch_damager.tscn" id="3_a6p83"]
+[ext_resource type="AudioStream" uid="uid://dow1y7nyhrhy3" path="res://audio/berry-fucking-dies.wav" id="3_qm7j8"]
+[ext_resource type="PackedScene" uid="uid://dtsj83uvbb1lt" path="res://scenes/health.tscn" id="3_yawax"]
+[ext_resource type="PackedScene" uid="uid://daxdb4gycne2g" path="res://scenes/entity_debug.tscn" id="5_kulhs"]
+[ext_resource type="Texture2D" uid="uid://oaun82do4ahk" path="res://textures/fx.png" id="7_lipht"]
+[ext_resource type="Script" path="res://scripts/Mover.gd" id="9_to8gn"]
+
+[sub_resource type="Animation" id="Animation_a14uq"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Mouth:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(123, 243, 18, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_ojgtr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Mouth:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(123, 243, 18, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_rvfjg"]
+resource_name = "Yell"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Mouth:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_re5ud"]
+_data = {
+"Idle": SubResource("Animation_a14uq"),
+"RESET": SubResource("Animation_ojgtr"),
+"Yell": SubResource("Animation_rvfjg")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tlu2l"]
+random_pitch = 2.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5q2xy"]
+streams_count = 1
+stream_0/stream = ExtResource("3_qm7j8")
+stream_0/weight = 1.0
+
+[sub_resource type="Animation" id="Animation_filxj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9, 1.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/LeftLeg:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(134, 263, 7, 17)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/RightLeg:texture:region")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(154, 302, 14, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_f201q"]
+resource_name = "Running"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/LeftLeg:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(134, 263, 7, 17), Rect2(136, 301, 12, 11), Rect2(134, 263, 7, 17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/RightLeg:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Rect2(154, 302, 14, 10), Rect2(155, 264, 7, 16), Rect2(154, 302, 14, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(0.9, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3sxc4"]
+_data = {
+"RESET": SubResource("Animation_filxj"),
+"Running": SubResource("Animation_f201q")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wj4f"]
+atlas = ExtResource("7_lipht")
+region = Rect2(255, 398, 243, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd8tg"]
+atlas = ExtResource("2_wm28v")
+region = Rect2(32, 228, 64, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c36j"]
+atlas = ExtResource("2_wm28v")
+region = Rect2(134, 263, 7, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcidx"]
+atlas = ExtResource("2_wm28v")
+region = Rect2(154, 302, 14, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysy5k"]
+atlas = ExtResource("2_wm28v")
+region = Rect2(123, 243, 18, 6)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_djgix"]
+radius = 27.0
+height = 54.0
+
+[sub_resource type="Gradient" id="Gradient_7mphp"]
+offsets = PackedFloat32Array(0.818965, 1)
+colors = PackedColorArray(0.47451, 0.301961, 0.505882, 1, 0.47451, 0.301961, 0.505882, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6s7au"]
+gradient = SubResource("Gradient_7mphp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8cuk"]
+emission_shape = 2
+emission_sphere_radius = 16.8
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 1000, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.2
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_6s7au")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmn2t"]
+atlas = ExtResource("7_lipht")
+region = Rect2(26, 51, 199, 158)
+
+[node name="blueberry" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_kslfg")
+health_path = NodePath("Health")
+enemy_name = "blueberry"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_re5ud")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_tlu2l")
+bus = &"SFX"
+
+[node name="DeathPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_5q2xy")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+autoplay = "Running"
+libraries = {
+"": SubResource("AnimationLibrary_3sxc4")
+}
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 45.6667)
+scale = Vector2(0.18, 0.22)
+texture = SubResource("AtlasTexture_1wj4f")
+
+[node name="Body" type="Sprite2D" parent="."]
+scale = Vector2(0.9, 1.1)
+texture = SubResource("AtlasTexture_fd8tg")
+
+[node name="LeftLeg" type="Sprite2D" parent="Body"]
+position = Vector2(-12.6086, 38.2674)
+scale = Vector2(1.11111, 0.909091)
+texture = SubResource("AtlasTexture_6c36j")
+
+[node name="RightLeg" type="Sprite2D" parent="Body"]
+position = Vector2(12.5766, 39.4795)
+scale = Vector2(1.11111, 0.909091)
+texture = SubResource("AtlasTexture_vcidx")
+
+[node name="Mouth" type="Sprite2D" parent="Body"]
+position = Vector2(0, 20.0141)
+scale = Vector2(0.967103, 1.03521)
+texture = SubResource("AtlasTexture_ysy5k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_djgix")
+
+[node name="Health" parent="." instance=ExtResource("3_yawax")]
+position = Vector2(0, 9.33333)
+collision_layer = 2
+collision_mask = 0
+stat_category = "blueberry"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Health"]
+shape = SubResource("CapsuleShape2D_djgix")
+
+[node name="TouchDamager" parent="." instance=ExtResource("3_a6p83")]
+collision_layer = 0
+damage = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDamager"]
+shape = SubResource("CapsuleShape2D_djgix")
+
+[node name="EntityDebug" parent="." instance=ExtResource("5_kulhs")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 0
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_p8cuk")
+texture = SubResource("AtlasTexture_lmn2t")
+
+[node name="Mover" type="Node2D" parent="."]
+script = ExtResource("9_to8gn")
+stat_name = "blueberry"

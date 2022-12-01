@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://biemr2f4hwajd"]
+
+[ext_resource type="Script" path="res://scripts/items/clean_slate.gd" id="1_ftgr3"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_5ir7t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnwrs"]
+atlas = ExtResource("2_5ir7t")
+region = Rect2(458, 35, 80, 80)
+
+[resource]
+script = ExtResource("1_ftgr3")
+texture = SubResource("AtlasTexture_mnwrs")
+exported_name = "clean_slate"
+item_name = "Clean Slate"
+required_flag = null
+unlocked_by_default = true

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://fy4rffda5m3m"]
+
+[ext_resource type="Texture2D" uid="uid://by0pnrsohyk5q" path="res://textures/bad-egg.png" id="1_ao0bn"]
+
+[resource]
+atlas = ExtResource("1_ao0bn")
+region = Rect2(531, 507, 57, 60)

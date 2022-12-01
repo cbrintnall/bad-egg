@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://daxdb4gycne2g"]
+
+[ext_resource type="FontFile" uid="uid://boljf4py77kor" path="res://fonts/LilMrkr-Tight-Regular.otf" id="1_1aw7i"]
+[ext_resource type="Script" path="res://scripts/enemy_debug_info.gd" id="2_lkvqx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gegyj"]
+font = ExtResource("1_1aw7i")
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="EntityDebug" type="Label"]
+anchors_preset = -1
+offset_left = -0.5
+offset_top = -70.0
+offset_right = 0.5
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 6
+label_settings = SubResource("LabelSettings_gegyj")
+horizontal_alignment = 1
+script = ExtResource("2_lkvqx")

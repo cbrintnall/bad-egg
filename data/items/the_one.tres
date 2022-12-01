@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://hud3lt1amjr5"]
+
+[ext_resource type="Script" path="res://scripts/enemy/one_spawner.gd" id="1_at8ro"]
+[ext_resource type="Script" path="res://scripts/items/event_based.gd" id="1_uduee"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="3_4ii7m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4pkk"]
+atlas = ExtResource("3_4ii7m")
+region = Rect2(730, 200, 40, 92)
+
+[resource]
+script = ExtResource("1_uduee")
+chosen_source = 0
+chosen_node = ExtResource("1_at8ro")
+starting_chance = 1.0
+on_pickup = true
+sets_flag = 0
+chosen_signal = ""
+texture = SubResource("AtlasTexture_d4pkk")
+exported_name = "the_one"
+item_name = "One Is Born Every Minute"
+required_flag = 0
+unlocked_by_default = true

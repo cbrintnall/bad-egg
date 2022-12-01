@@ -1,0 +1,208 @@
+[gd_scene load_steps=14 format=3 uid="uid://egkr2kwojhxo"]
+
+[ext_resource type="Script" path="res://scripts/the_one.gd" id="1_c81od"]
+[ext_resource type="Texture2D" uid="uid://mljadg6hngvh" path="res://textures/enemies.png" id="2_8xdww"]
+[ext_resource type="AudioStream" uid="uid://6lqcmj5qf6qs" path="res://audio/blueberry-yell.wav" id="2_j8op6"]
+[ext_resource type="Script" path="res://scripts/random_play.gd" id="5_lxl0d"]
+[ext_resource type="Script" path="res://scripts/Mover.gd" id="6_dcmwe"]
+[ext_resource type="PackedScene" uid="uid://dtsj83uvbb1lt" path="res://scenes/health.tscn" id="7_v4tms"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3t2m"]
+atlas = ExtResource("2_8xdww")
+region = Rect2(1130, 565, 62, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnari"]
+atlas = ExtResource("2_8xdww")
+region = Rect2(1169, 699, 13, 19)
+
+[sub_resource type="Animation" id="Animation_d46oy"]
+resource_name = "Running"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-10, 62), Vector2(-10, 60), Vector2(-10, 62)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightLeg:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(17, 60), Vector2(17, 62), Vector2(17, 60)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightLeg:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.349066, 0.0, -0.349066]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ace3a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftLeg:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftLeg:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, 60)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightLeg:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17, 60)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RightLeg:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.349066]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jwisl"]
+_data = {
+"RESET": SubResource("Animation_ace3a"),
+"Running": SubResource("Animation_d46oy")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pvmtr"]
+streams_count = 2
+stream_0/stream = ExtResource("2_j8op6")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_j8op6")
+stream_1/weight = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptthf"]
+radius = 71.0634
+
+[node name="TheOne" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_c81od")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_b3t2m")
+offset = Vector2(0, 2)
+
+[node name="LeftLeg" type="Sprite2D" parent="Body"]
+position = Vector2(-10, 60)
+texture = SubResource("AtlasTexture_gnari")
+
+[node name="RightLeg" type="Sprite2D" parent="Body"]
+position = Vector2(17, 60)
+rotation = -0.349066
+texture = SubResource("AtlasTexture_gnari")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
+autoplay = "Running"
+libraries = {
+"": SubResource("AnimationLibrary_jwisl")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_pvmtr")
+max_distance = 4000.0
+bus = &"SFX"
+script = ExtResource("5_lxl0d")
+
+[node name="mover" type="Node2D" parent="."]
+script = ExtResource("6_dcmwe")
+satisfaction_distance = 300.0
+type = 1
+stat_name = "the_one"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ptthf")
+
+[node name="Health" parent="." instance=ExtResource("7_v4tms")]
+collision_layer = 2
+collision_mask = 2
+max_health = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Health"]
+modulate = Color(0, 1, 1, 1)
+shape = SubResource("CircleShape2D_ptthf")

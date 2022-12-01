@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bk2ilv68ich4i"]
+
+[ext_resource type="Script" path="res://scripts/enemy/wave.gd" id="1_nwthp"]
+
+[resource]
+script = ExtResource("1_nwthp")
+enemy_type = 0
+amount = 15.0

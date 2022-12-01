@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://bta8m113f7ub4"]
+
+[ext_resource type="Script" path="res://scripts/items/item_weapon.gd" id="1_hc2v3"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_vewpd"]
+[ext_resource type="PackedScene" uid="uid://d3cy588ikc0u4" path="res://scenes/weapons/salt_shooter.tscn" id="3_ko1sd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrtu2"]
+atlas = ExtResource("2_vewpd")
+region = Rect2(152, 349, 72, 111)
+
+[resource]
+script = ExtResource("1_hc2v3")
+weapon_scene = ExtResource("3_ko1sd")
+texture = SubResource("AtlasTexture_qrtu2")
+exported_name = "salt_shooter"
+required_flag = null
+unlocked_by_default = true

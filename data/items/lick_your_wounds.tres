@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://11vy4fpygu44"]
+
+[ext_resource type="Script" path="res://scripts/items/event_based.gd" id="1_5c1cr"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_xse2j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05bsc"]
+atlas = ExtResource("2_xse2j")
+region = Rect2(657, 210, 42, 52)
+
+[resource]
+script = ExtResource("1_5c1cr")
+chosen_source = 1
+starting_chance = 1.0
+on_pickup = true
+sets_flag = 2
+chosen_signal = ""
+texture = SubResource("AtlasTexture_05bsc")
+exported_name = "cat_heal"
+item_name = "Lick Your Wounds"
+required_flag = 1
+unlocked_by_default = false

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnoate1uethqf"]
+
+[ext_resource type="Texture2D" uid="uid://oaun82do4ahk" path="res://textures/fx.png" id="1_16fyt"]
+[ext_resource type="Script" path="res://scripts/chunk_purchaser.gd" id="2_ofdi0"]
+[ext_resource type="PackedScene" uid="uid://di85fy0i2w6pw" path="res://scenes/purchasable.tscn" id="3_07c6o"]
+[ext_resource type="PackedScene" uid="uid://ds8hagmbv006a" path="res://cost_label.tscn" id="4_cror1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud2s7"]
+atlas = ExtResource("1_16fyt")
+region = Rect2(659, 13, 66, 67)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3aw0s"]
+radius = 108.042
+
+[node name="ChunkPurchase" type="Sprite2D"]
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_ud2s7")
+script = ExtResource("2_ofdi0")
+chunk_to_purchase = Vector2i(0, 1)
+
+[node name="Purchasable" parent="." instance=ExtResource("3_07c6o")]
+cost_key = "sign"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Purchasable"]
+shape = SubResource("CircleShape2D_3aw0s")
+
+[node name="CostLabel" parent="." instance=ExtResource("4_cror1")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = -100.667
+offset_right = -5.0
+offset_bottom = -91.6667
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+purchasable_path = NodePath("../Purchasable")

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dp7tcyronacmn"]
+
+[ext_resource type="Script" path="res://scripts/items/event_based.gd" id="1_k2bdd"]
+[ext_resource type="Script" path="res://scripts/items/event_based/calm_before_storm.gd" id="1_ybfd4"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="3_btko7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6hh1"]
+atlas = ExtResource("3_btko7")
+region = Rect2(557, 128, 60, 74)
+
+[resource]
+script = ExtResource("1_k2bdd")
+chosen_source = 0
+chosen_node = ExtResource("1_ybfd4")
+starting_chance = 1.0
+on_pickup = true
+sets_flag = 0
+chosen_signal = ""
+texture = SubResource("AtlasTexture_v6hh1")
+exported_name = "cbts"
+item_name = "Calm Before The Storm"
+required_flag = 0
+unlocked_by_default = true

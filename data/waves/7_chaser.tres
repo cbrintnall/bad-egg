@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dkr4gfq2gv1j6"]
+
+[ext_resource type="Script" path="res://scripts/enemy/wave.gd" id="1_molss"]
+
+[resource]
+script = ExtResource("1_molss")
+enemy_type = 0
+amount = 7.0

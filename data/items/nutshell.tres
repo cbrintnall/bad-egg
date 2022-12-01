@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://c5uiem70lqn8s"]
+
+[ext_resource type="Script" path="res://scripts/items/nutshell.gd" id="1_2yo3o"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_x5nms"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xxih"]
+atlas = ExtResource("2_x5nms")
+region = Rect2(719, 97, 52, 63)
+
+[resource]
+script = ExtResource("1_2yo3o")
+reduction_amount = 2
+texture = SubResource("AtlasTexture_2xxih")
+exported_name = "nutshell"
+item_name = "In a Nutshell"
+required_flag = null
+unlocked_by_default = true

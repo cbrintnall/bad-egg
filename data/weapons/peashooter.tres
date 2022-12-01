@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://df3oijh5n6v7r"]
+
+[ext_resource type="Script" path="res://scripts/items/item_weapon.gd" id="1_uwn1t"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_uksjk"]
+[ext_resource type="PackedScene" uid="uid://d2vg3gab43jh0" path="res://scenes/weapons/gun.tscn" id="3_cxakq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrtu2"]
+atlas = ExtResource("2_uksjk")
+region = Rect2(159, 75, 91, 67)
+
+[resource]
+script = ExtResource("1_uwn1t")
+weapon_scene = ExtResource("3_cxakq")
+texture = SubResource("AtlasTexture_qrtu2")
+exported_name = "gun"
+required_flag = null
+unlocked_by_default = true

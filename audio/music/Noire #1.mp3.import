@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dgp3mbnf73jlm"
+path="res://.godot/imported/Noire #1.mp3-5a366503f6b3ec5dc3106f66beace212.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Noire #1.mp3"
+dest_files=["res://.godot/imported/Noire #1.mp3-5a366503f6b3ec5dc3106f66beace212.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

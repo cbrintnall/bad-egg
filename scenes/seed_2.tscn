@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7taiton18380"]
+
+[ext_resource type="Texture2D" uid="uid://mljadg6hngvh" path="res://textures/enemies.png" id="1_6jttd"]
+[ext_resource type="Script" path="res://scripts/seed.gd" id="1_mlwd7"]
+[ext_resource type="AudioStream" uid="uid://b74eqjkje6n4g" path="res://audio/PepperSeedShoot.wav" id="3_d2ftp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vq5fu"]
+radius = 26.0768
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt410"]
+atlas = ExtResource("1_6jttd")
+region = Rect2(678, 209, 29, 46)
+
+[sub_resource type="Animation" id="Animation_nnp3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_igxxp"]
+resource_name = "spin"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dt4p3"]
+_data = {
+"RESET": SubResource("Animation_nnp3g"),
+"spin": SubResource("Animation_igxxp")
+}
+
+[node name="Seed" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_mlwd7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vq5fu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_tt410")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d2ftp")
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_dt4p3")
+}

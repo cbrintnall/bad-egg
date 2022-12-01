@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://0wh2qcapk88h"]
+
+[ext_resource type="Script" path="res://scripts/items/healing_aura.gd" id="1_cngn6"]
+[ext_resource type="Texture2D" uid="uid://oaun82do4ahk" path="res://textures/fx.png" id="2_8chot"]
+
+[sub_resource type="Gradient" id="Gradient_1rov6"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.155172, 0.87931, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kv275"]
+gradient = SubResource("Gradient_1rov6")
+
+[sub_resource type="Curve" id="Curve_a88xo"]
+max_value = 1000.0
+_data = [Vector2(0, 1), 0.0, 1001.76, 0, 0, Vector2(1, 1000), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_eho77"]
+curve = SubResource("Curve_a88xo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n5xsx"]
+emission_shape = 1
+emission_sphere_radius = 500.0
+particle_flag_disable_z = true
+gravity = Vector3(0, -200, 0)
+angular_velocity_min = -30.0
+angular_velocity_max = 30.0
+orbit_velocity_min = 0.01
+orbit_velocity_max = 0.02
+damping_curve = SubResource("CurveTexture_eho77")
+color_ramp = SubResource("GradientTexture1D_kv275")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5vsf"]
+atlas = ExtResource("2_8chot")
+region = Rect2(568, 11, 61, 63)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qq88i"]
+
+[node name="HealingAura" type="Node2D"]
+show_behind_parent = true
+z_index = -1
+y_sort_enabled = true
+script = ExtResource("1_cngn6")
+main_color = Color(0.137255, 0.352941, 0.388235, 1)
+pulse_color = Color(0.364706, 0.462745, 0.407843, 1)
+
+[node name="Leaves" type="GPUParticles2D" parent="."]
+show_behind_parent = true
+y_sort_enabled = true
+emitting = false
+amount = 20
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_n5xsx")
+texture = SubResource("AtlasTexture_q5vsf")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qq88i")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="HealingTimer" type="Timer" parent="."]
+one_shot = true

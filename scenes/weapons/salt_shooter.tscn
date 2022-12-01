@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3cy588ikc0u4"]
+
+[ext_resource type="Script" path="res://scripts/weapon-gun.gd" id="1_jgogq"]
+[ext_resource type="AudioStream" uid="uid://dw00ugb5uvads" path="res://audio/weapons/GunShoot01.wav" id="2_i4hne"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="3_uo21r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhqbn"]
+atlas = ExtResource("3_uo21r")
+region = Rect2(152, 349, 72, 111)
+
+[node name="SaltShooter" type="Node2D"]
+script = ExtResource("1_jgogq")
+shoot_sounds = [ExtResource("2_i4hne")]
+cooldown_timer_path = NodePath("Timer")
+sprite_path = NodePath("Sprite2D")
+audio_player_path = NodePath("AudioStreamPlayer2D")
+barrel_path = NodePath("Barrel")
+weapon_rotation_offset = 270.0
+weapon_stat_name = "salt_shooter"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_vhqbn")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+
+[node name="Barrel" type="Node2D" parent="."]
+position = Vector2(0, -43)

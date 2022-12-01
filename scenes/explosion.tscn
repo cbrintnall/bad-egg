@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://p7gdcygrl3ym"]
+
+[ext_resource type="Script" path="res://scripts/explosion.gd" id="1_1jtid"]
+[ext_resource type="AudioStream" uid="uid://dunaniqlh28fg" path="res://audio/Explosion.wav" id="2_awe7j"]
+[ext_resource type="Texture2D" uid="uid://oaun82do4ahk" path="res://textures/fx.png" id="3_4nxd1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hn5n7"]
+radius = 92.0054
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bboem"]
+streams_count = 1
+playback_mode = 1
+random_pitch = 2.0
+stream_0/stream = ExtResource("2_awe7j")
+stream_0/weight = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0eu65"]
+atlas = ExtResource("3_4nxd1")
+region = Rect2(242, 32, 240, 215)
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_1jtid")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_hn5n7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_bboem")
+autoplay = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0eu65")

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cbq3ch4pmvmq7"]
+
+[ext_resource type="PackedScene" uid="uid://fcuiqhgty4px" path="res://scenes/weapons/microphone_scalar.tscn" id="1_p7ywo"]
+[ext_resource type="Script" path="res://scripts/items/event_based.gd" id="1_wl0k5"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="3_ie6r6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heodb"]
+atlas = ExtResource("3_ie6r6")
+region = Rect2(794, 77, 46, 78)
+
+[resource]
+script = ExtResource("1_wl0k5")
+chosen_source = 1
+chosen_scene = ExtResource("1_p7ywo")
+starting_chance = 1.0
+on_pickup = true
+sets_flag = 0
+chosen_signal = ""
+texture = SubResource("AtlasTexture_heodb")
+exported_name = "microphone"
+item_name = "Microphone"
+required_flag = 0
+unlocked_by_default = true

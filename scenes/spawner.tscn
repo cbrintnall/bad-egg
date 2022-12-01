@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4nhwbavjoyxx"]
+
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="1_s2ufr"]
+[ext_resource type="AudioStream" uid="uid://d3h6r77hyonvm" path="res://audio/Win sound 25.wav" id="3_smclo"]
+[ext_resource type="AudioStream" uid="uid://dqis6cmihdft8" path="res://audio/RoundStart.wav" id="4_y8vyo"]
+
+[sub_resource type="Curve" id="Curve_c8gh5"]
+
+[node name="spawner" type="Node2D"]
+script = ExtResource("1_s2ufr")
+tilemap_path = NodePath("../map")
+map_generator_path = NodePath("../map_generator")
+win_sound = ExtResource("3_smclo")
+round_start_sound = ExtResource("4_y8vyo")
+difficulty_curve = SubResource("Curve_c8gh5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="enemy" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="spawns" type="Node2D" parent="."]
+
+[node name="round" type="Timer" parent="."]

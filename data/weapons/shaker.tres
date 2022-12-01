@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://byivakrs16fvs"]
+
+[ext_resource type="Script" path="res://scripts/items/item_weapon.gd" id="1_t5fqp"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_q5406"]
+[ext_resource type="PackedScene" uid="uid://bwclsqslsnhyc" path="res://scenes/weapons/shaker.tscn" id="3_dqd5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrtu2"]
+atlas = ExtResource("2_q5406")
+region = Rect2(250, 324, 67, 141)
+
+[resource]
+script = ExtResource("1_t5fqp")
+weapon_scene = ExtResource("3_dqd5x")
+texture = SubResource("AtlasTexture_qrtu2")
+exported_name = "shaker"
+required_flag = null
+unlocked_by_default = true

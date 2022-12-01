@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://doxdxb5gha2x6"]
+
+[ext_resource type="Script" path="res://scripts/enemy/round.gd" id="1_vx0nx"]
+
+[resource]
+script = ExtResource("1_vx0nx")
+seconds = 60.0
+waves = [null]

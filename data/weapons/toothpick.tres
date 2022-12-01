@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://c8rnowutf0m8j"]
+
+[ext_resource type="Script" path="res://scripts/items/item_weapon.gd" id="1_4nyeo"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_s2dtt"]
+[ext_resource type="PackedScene" uid="uid://dq6e4qo3h0pun" path="res://scenes/weapons/toothpick.tscn" id="3_whlfi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrtu2"]
+atlas = ExtResource("2_s2dtt")
+region = Rect2(97, 349, 12, 108)
+
+[resource]
+script = ExtResource("1_4nyeo")
+weapon_scene = ExtResource("3_whlfi")
+texture = SubResource("AtlasTexture_qrtu2")
+exported_name = "toothpick"
+required_flag = null
+unlocked_by_default = true

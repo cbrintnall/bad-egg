@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://d1yagv8uioehh"]
+
+[ext_resource type="Script" path="res://scripts/items/round_length_adjuster.gd" id="1_brsq7"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_aefi2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8p68"]
+atlas = ExtResource("2_aefi2")
+region = Rect2(789, 176, 67, 90)
+
+[resource]
+script = ExtResource("1_brsq7")
+amount = -0.1
+texture = SubResource("AtlasTexture_c8p68")
+exported_name = "lateott"
+required_flag = null
+unlocked_by_default = true

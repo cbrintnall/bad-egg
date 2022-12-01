@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://kua3fy865rj4"]
+
+[ext_resource type="Script" path="res://scripts/items/event_based/jump_to_conclusions.gd" id="1_as547"]
+[ext_resource type="Script" path="res://scripts/items/event_based.gd" id="1_ghhtb"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="3_0buc4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g460y"]
+atlas = ExtResource("3_0buc4")
+region = Rect2(514, 204, 59, 70)
+
+[resource]
+script = ExtResource("1_ghhtb")
+chosen_source = 0
+chosen_node = ExtResource("1_as547")
+starting_chance = 1.0
+on_pickup = true
+sets_flag = 0
+chosen_signal = ""
+texture = SubResource("AtlasTexture_g460y")
+exported_name = "jtc"
+item_name = "Jump To Conclusions"
+required_flag = 0
+unlocked_by_default = true

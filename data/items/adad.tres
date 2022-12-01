@@ -1,0 +1,22 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://cvslr3jsur5si"]
+
+[ext_resource type="Script" path="res://scripts/items/event_based/adad.gd" id="1_gx8vk"]
+[ext_resource type="Script" path="res://scripts/items/event_based.gd" id="2_78ej2"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="3_6crnb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afgmr"]
+atlas = ExtResource("3_6crnb")
+region = Rect2(561, 20, 76, 73)
+
+[resource]
+script = ExtResource("2_78ej2")
+chosen_source = 0
+chosen_node = ExtResource("1_gx8vk")
+starting_chance = 1.0
+on_pickup = false
+sets_flag = 0
+chosen_signal = "wave_start"
+texture = SubResource("AtlasTexture_afgmr")
+exported_name = "adad"
+required_flag = 0
+unlocked_by_default = true

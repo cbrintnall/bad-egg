@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bxgyprob0qi6h"]
+
+[ext_resource type="FontFile" uid="uid://boljf4py77kor" path="res://fonts/LilMrkr-Tight-Regular.otf" id="1_74kk4"]
+
+[resource]
+font = ExtResource("1_74kk4")
+font_size = 72
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtxballmrin86"]
+
+[ext_resource type="Texture2D" uid="uid://by0pnrsohyk5q" path="res://textures/bad-egg.png" id="1_w3aeu"]
+[ext_resource type="Texture2D" uid="uid://fy4rffda5m3m" path="res://textures/assets/bad-egg.tres" id="2_t7o17"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33fko"]
+atlas = ExtResource("1_w3aeu")
+region = Rect2(238, 330, 112, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbh74"]
+atlas = ExtResource("1_w3aeu")
+region = Rect2(468, 365, 41, 50)
+
+[node name="PlayerBody" type="Sprite2D"]
+texture = SubResource("AtlasTexture_33fko")
+
+[node name="RightLeg" type="Sprite2D" parent="."]
+position = Vector2(46, 90)
+texture = ExtResource("2_t7o17")
+
+[node name="LeftLeg" type="Sprite2D" parent="."]
+position = Vector2(-38, 84)
+texture = SubResource("AtlasTexture_qbh74")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

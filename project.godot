@@ -1,0 +1,368 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Item",
+"class": &"ApplyBurning",
+"language": &"GDScript",
+"path": "res://scripts/items/apply_burning.gd"
+}, {
+"base": "Item",
+"class": &"BeggarsCantBeChoosers",
+"language": &"GDScript",
+"path": "res://scripts/items/bcbc.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Cat",
+"language": &"GDScript",
+"path": "res://scripts/cat_controller.gd"
+}, {
+"base": "Item",
+"class": &"ChanceToApply",
+"language": &"GDScript",
+"path": "res://scripts/items/chance_to_apply.gd"
+}, {
+"base": "Node2D",
+"class": &"Chunk",
+"language": &"GDScript",
+"path": "res://scripts/map/chunk.gd"
+}, {
+"base": "Item",
+"class": &"CleanSlate",
+"language": &"GDScript",
+"path": "res://scripts/items/clean_slate.gd"
+}, {
+"base": "RefCounted",
+"class": &"DamageInfo",
+"language": &"GDScript",
+"path": "res://scripts/utilities/damage_info.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Enemy",
+"language": &"GDScript",
+"path": "res://scripts/enemy.gd"
+}, {
+"base": "Item",
+"class": &"EventBasedItem",
+"language": &"GDScript",
+"path": "res://scripts/items/event_based.gd"
+}, {
+"base": "Node2D",
+"class": &"Health",
+"language": &"GDScript",
+"path": "res://scripts/health.gd"
+}, {
+"base": "Resource",
+"class": &"Item",
+"language": &"GDScript",
+"path": "res://scripts/items/item.gd"
+}, {
+"base": "Item",
+"class": &"ItemWeapon",
+"language": &"GDScript",
+"path": "res://scripts/items/item_weapon.gd"
+}, {
+"base": "AudioEffect",
+"class": &"LevelSurpasser",
+"language": &"GDScript",
+"path": "res://scripts/items/level_surpasser.gd"
+}, {
+"base": "Node2D",
+"class": &"MapGenerator",
+"language": &"GDScript",
+"path": "res://scripts/map_generator.gd"
+}, {
+"base": "Item",
+"class": &"Nutshell",
+"language": &"GDScript",
+"path": "res://scripts/items/nutshell.gd"
+}, {
+"base": "Node",
+"class": &"PerRound",
+"language": &"GDScript",
+"path": "res://scripts/stats/per_round.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Player",
+"language": &"GDScript",
+"path": "res://scripts/player.gd"
+}, {
+"base": "Node",
+"class": &"PlayerUtilities",
+"language": &"GDScript",
+"path": "res://scripts/utilities/player_utilities.gd"
+}, {
+"base": "AtlasTexture",
+"class": &"RandomTexture",
+"language": &"GDScript",
+"path": "res://scripts/random_texture.gd"
+}, {
+"base": "Resource",
+"class": &"Round",
+"language": &"GDScript",
+"path": "res://scripts/enemy/round.gd"
+}, {
+"base": "Item",
+"class": &"RoundLengthAdjuster",
+"language": &"GDScript",
+"path": "res://scripts/items/round_length_adjuster.gd"
+}, {
+"base": "Enemy",
+"class": &"Sausage",
+"language": &"GDScript",
+"path": "res://scripts/sausage.gd"
+}, {
+"base": "Resource",
+"class": &"Setting",
+"language": &"GDScript",
+"path": "res://scripts/ui/setting.gd"
+}, {
+"base": "Node2D",
+"class": &"Spawner",
+"language": &"GDScript",
+"path": "res://scripts/spawner.gd"
+}, {
+"base": "Resource",
+"class": &"Stat",
+"language": &"GDScript",
+"path": "res://scripts/stats/stat.gd"
+}, {
+"base": "HBoxContainer",
+"class": &"StatContainer",
+"language": &"GDScript",
+"path": "res://scripts/stat_upgrade_bar.gd"
+}, {
+"base": "Stat",
+"class": &"StatFloat",
+"language": &"GDScript",
+"path": "res://scripts/stats/stat_float.gd"
+}, {
+"base": "StatFloat",
+"class": &"StatInt",
+"language": &"GDScript",
+"path": "res://scripts/stats/stat_int.gd"
+}, {
+"base": "Node2D",
+"class": &"Stats",
+"language": &"GDScript",
+"path": "res://scripts/game_stats.gd"
+}, {
+"base": "Item",
+"class": &"Sticky",
+"language": &"GDScript",
+"path": "res://scripts/items/sticky.gd"
+}, {
+"base": "WeaponMelee",
+"class": &"SwipeWeapon",
+"language": &"GDScript",
+"path": "res://scripts/weapon-swipe.gd"
+}, {
+"base": "TowerItem",
+"class": &"TowerHeal",
+"language": &"GDScript",
+"path": "res://scripts/items/tower_heal.gd"
+}, {
+"base": "Item",
+"class": &"TowerItem",
+"language": &"GDScript",
+"path": "res://scripts/items/tower_item.gd"
+}, {
+"base": "RefCounted",
+"class": &"Tracker",
+"language": &"GDScript",
+"path": "res://scripts/utilities/tracker.gd"
+}, {
+"base": "Node",
+"class": &"Translations",
+"language": &"GDScript",
+"path": "res://scripts/ui/translations.gd"
+}, {
+"base": "Node",
+"class": &"Utils",
+"language": &"GDScript",
+"path": "res://scripts/utils.gd"
+}, {
+"base": "Resource",
+"class": &"Wave",
+"language": &"GDScript",
+"path": "res://scripts/enemy/wave.gd"
+}, {
+"base": "Node2D",
+"class": &"Weapon",
+"language": &"GDScript",
+"path": "res://scenes/weapon.gd"
+}, {
+"base": "Weapon",
+"class": &"WeaponGun",
+"language": &"GDScript",
+"path": "res://scripts/weapon-gun.gd"
+}, {
+"base": "Weapon",
+"class": &"WeaponMelee",
+"language": &"GDScript",
+"path": "res://scripts/weapon-melee.gd"
+}, {
+"base": "WeaponMelee",
+"class": &"WeaponStab",
+"language": &"GDScript",
+"path": "res://scripts/weapon-stab.gd"
+}, {
+"base": "RefCounted",
+"class": &"WeightedPool",
+"language": &"GDScript",
+"path": "res://scripts/utilities/weighted_pool.gd"
+}]
+_global_script_class_icons={
+"ApplyBurning": "",
+"BeggarsCantBeChoosers": "",
+"Cat": "",
+"ChanceToApply": "",
+"Chunk": "",
+"CleanSlate": "",
+"DamageInfo": "",
+"Enemy": "",
+"EventBasedItem": "",
+"Health": "",
+"Item": "",
+"ItemWeapon": "",
+"LevelSurpasser": "",
+"MapGenerator": "",
+"Nutshell": "",
+"PerRound": "",
+"Player": "",
+"PlayerUtilities": "",
+"RandomTexture": "",
+"Round": "",
+"RoundLengthAdjuster": "",
+"Sausage": "",
+"Setting": "",
+"Spawner": "",
+"Stat": "",
+"StatContainer": "",
+"StatFloat": "",
+"StatInt": "",
+"Stats": "",
+"Sticky": "",
+"SwipeWeapon": "",
+"TowerHeal": "",
+"TowerItem": "",
+"Tracker": "",
+"Translations": "",
+"Utils": "",
+"Wave": "",
+"Weapon": "",
+"WeaponGun": "",
+"WeaponMelee": "",
+"WeaponStab": "",
+"WeightedPool": ""
+}
+
+[application]
+
+config/name="BadEgg"
+run/main_scene="res://scenes/mains/main_menu.tscn"
+config/features=PackedStringArray("4.0")
+boot_splash/show_image=false
+config/icon="res://icon.png"
+
+[audio]
+
+driver/enable_input=true
+
+[autoload]
+
+Storage="*res://scripts/storage.gd"
+EventBus="*res://scripts/event_bus.gd"
+MusicManager="*res://scripts/music_manager.gd"
+
+[debug]
+
+file_logging/enable_file_logging=true
+file_logging/log_path="user://logs/game.log"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[dotnet]
+
+project/assembly_name="Bits"
+
+[editor]
+
+run/main_run_args="dev"
+import/reimport_missing_imported_files=false
+export/convert_text_resources_to_binary=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/item_creator/plugin.cfg")
+
+[input]
+
+ui_left={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194319,"physical_keycode":0,"unicode":4194319,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"unicode":0,"echo":false,"script":null)
+]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194321,"physical_keycode":0,"unicode":4194321,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"unicode":0,"echo":false,"script":null)
+]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194320,"physical_keycode":0,"unicode":4194320,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"unicode":0,"echo":false,"script":null)
+]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194322,"physical_keycode":0,"unicode":4194322,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"unicode":0,"echo":false,"script":null)
+]
+}
+debug_toggle={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"unicode":0,"echo":false,"script":null)
+]
+}
+purchase={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"unicode":0,"echo":false,"script":null)
+]
+}
+reroll={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"unicode":0,"echo":false,"script":null)
+]
+}
+start_round={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"unicode":0,"echo":false,"script":null)
+]
+}
+restart_game={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"unicode":0,"echo":false,"script":null)
+]
+}
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+2d/snap/snap_2d_transforms_to_pixel=true

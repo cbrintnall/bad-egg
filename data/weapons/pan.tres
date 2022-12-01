@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://8q7x1c1kvy43"]
+
+[ext_resource type="Script" path="res://scripts/items/item_weapon.gd" id="1_pecck"]
+[ext_resource type="Texture2D" uid="uid://cq2vnulgdgree" path="res://textures/weapons.png" id="2_rotln"]
+[ext_resource type="PackedScene" uid="uid://d22su1pgnbgo7" path="res://scenes/weapons/pan.tscn" id="3_joqtk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrtu2"]
+atlas = ExtResource("2_rotln")
+region = Rect2(58, 148, 74, 137)
+
+[resource]
+script = ExtResource("1_pecck")
+weapon_scene = ExtResource("3_joqtk")
+texture = SubResource("AtlasTexture_qrtu2")
+exported_name = "pan"
+required_flag = null
+unlocked_by_default = true

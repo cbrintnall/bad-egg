@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwclsqslsnhyc"]
+
+[ext_resource type="Script" path="res://scripts/weapon-swipe.gd" id="1_xergv"]
+[ext_resource type="AudioStream" uid="uid://befcxrmks576n" path="res://audio/PanHit01.wav" id="2_i8hsq"]
+[ext_resource type="AudioStream" uid="uid://bs68wipw6hvmi" path="res://audio/PanHit02.wav" id="3_pgyhf"]
+[ext_resource type="Texture2D" uid="uid://cr2o0o1i8jjtw" path="res://textures/assets/weapons.tres" id="4_q1rep"]
+[ext_resource type="PackedScene" uid="uid://btprbuwifgdtg" path="res://scenes/touch_damager.tscn" id="5_03bw4"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kn528"]
+streams_count = 2
+stream_0/stream = ExtResource("2_i8hsq")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_pgyhf")
+stream_1/weight = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3b0e"]
+radius = 6.0
+height = 24.2
+
+[node name="shaker" type="Node2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_xergv")
+swing_intensity = 1.0
+weapon_swing_distance = 90.0
+player_path = NodePath("AudioStreamPlayer2D")
+sprite_path = NodePath("Sprite2D")
+cooldown_timer_path = NodePath("Timer")
+damager_path = NodePath("TouchDamager")
+weapon_stat_name = "shaker"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_kn528")
+bus = &"SFX"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_q1rep")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="TouchDamager" parent="." instance=ExtResource("5_03bw4")]
+collision_layer = 0
+collision_mask = 2
+signal_only = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDamager"]
+shape = SubResource("CapsuleShape2D_q3b0e")

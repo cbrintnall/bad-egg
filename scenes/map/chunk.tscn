@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvalb760bfqwr"]
+
+[ext_resource type="Script" path="res://scripts/map/chunk.gd" id="1_t0muo"]
+[ext_resource type="AudioStream" uid="uid://tilv06n1liym" path="res://audio/StandDisappear.wav" id="2_50oj3"]
+
+[node name="Chunk" type="Node2D"]
+script = ExtResource("1_t0muo")
+
+[node name="Children" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_50oj3")
+bus = &"SFX"
